@@ -100,6 +100,8 @@ python scripts/package_release.py
 
 私有项目的验证文档应写入用户指定的本地输出目录。公共仓库只收录通用说明、合成样例和不含私有细节的验证方法，不收录私有源码、业务资料、环境配置或凭据。
 
+已执行的分发、安装发现及实际文档试用记录见 [validation.md](docs/validation.md)，其中分别说明工具测试、源码锚点校验和业务语义审阅的边界。
+
 ## License
 
 [MIT](LICENSE)
