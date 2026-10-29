@@ -3,7 +3,7 @@ name: functional-analysis
 description: Analyze a software system, service, or module and write an evidence-based functional description covering capabilities, business flows, rules, data and state changes, failure behavior, and integration boundaries. Use for 功能描述、功能说明、业务逻辑梳理、模块设计逻辑 or reverse-engineering documentation from source code and supplied materials.
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.2.0"
 ---
 
 # Functional analysis
@@ -12,7 +12,7 @@ Requires source code or supplied design materials. No specific agent, operating 
 
 Produce a functional description that a human can use to understand what a system does, when it does it, which rules it applies, and what changes as a result. Organize by business capability and explain execution behavior with traceable evidence. Use the user's language and preserve original identifiers.
 
-Read [the analysis method](references/analysis-method.md) before investigating. Consult [the writing guide](references/writing-guide.md) when drafting or reviewing. Adapt [the document template](assets/functional-description.md) to the scope; omit sections that add no information. For a document-only task, describe the supplied material and label behavior that cannot be verified against implementation.
+Read [the analysis method](references/analysis-method.md) before investigating. Read [the writing guide](references/writing-guide.md) and adapt [the document template](assets/functional-description.md) before outlining and drafting. If the user provides a preferred document, follow its organization, heading vocabulary and explanation style where they fit the subject. Omit sections that add no information. For a document-only task, describe the supplied material and label behavior that cannot be verified against implementation.
 
 ## Working contract
 
@@ -26,12 +26,14 @@ Read [the analysis method](references/analysis-method.md) before investigating. 
 
 ## Deliverable
 
-Start with scope and business purpose, then a capability map. Explain complex features using purpose, trigger, inputs and preconditions, ordered processing, alternatives/failures, outputs and side effects. Group routine operations where this remains precise. Summarize important objects, rules, state changes and collaboration boundaries in tables; add Mermaid only where a diagram clarifies a multi-step flow.
+Write a functional design document organized around the reader's business questions. A useful service/module outline is: document scope; module purpose, responsibilities and core objects; overall design; a chapter for each substantial functional area; state and field constraints; external dependencies; current implementation differences. Use natural headings that name the actual subject or action, such as “待办处理设计”, “检查单填报设计”, “航季文件导入设计” and “保存失败后的恢复处理”. These are examples of specificity, not fixed domain names or a compulsory chapter count.
 
-For system scope, lead with system capabilities, service ownership, and selected cross-service scenarios. For service/module scope, lead with its responsibilities and concrete workflows. Do not expand a selected module into an undocumented claim of full system coverage.
+Within each functional area, use a compact function matrix when there are several operations, then explain each operation's purpose, inputs, ordered processing, data changes and result. Put failure handling beside the step it affects. State the design implication when it helps the reader understand the behavior and is supported by implementation. Group routine operations where this remains precise. Use tables for field inventories, rules and state values; use Mermaid only where it clarifies the flow.
 
-Write technical, natural prose: identify the actor, condition, action, and consequence; explain why each mechanism matters to the reader. Keep literals and identifiers exact. Explain only semantics supported by evidence. Separate optional recommendations from factual descriptions; an implementation description is not automatically an audit or redesign.
+For system scope, adapt the outline to system responsibilities, subsystem ownership and selected end-to-end business scenarios. Do not expand a selected module into an undocumented claim of full system coverage. Do not turn investigation steps or quality checks into the main document outline. Keep revision records, test/check details and the source index in an appendix or companion file; mention a material functional limitation where it changes the explanation.
 
-Before delivery, reconcile the capability matrix with the detailed flows, data/state tables, diagrams, and evidence index. Check reachable versus unused code, exception propagation, partial success, configured versus active behavior, source locations, and unresolved gaps. Report what was inspected and what was actually tested. Reading a test or running the evidence checker is not execution of application behavior.
+Write technical, natural prose: identify the actor, condition, action, and consequence; explain why each mechanism matters to the reader. Headings should read like an engineer's document, without invented metaphors or piles of abstract nouns. A reader should understand the subject from the heading alone. Keep literals and identifiers exact. Explain only semantics supported by evidence. Separate optional recommendations from factual descriptions; describing the design implemented in code does not establish that it is approved or intended.
+
+Before delivery, read the heading outline by itself: does it explain the module's business structure in familiar language, and does each section deliver what its heading promises? Reconcile the function matrices with the detailed flows, data/state tables, diagrams and source index. Check reachable versus unused code, exception propagation, partial success, configured versus active behavior, source locations and unresolved gaps. Report what was inspected and actually tested in the appendix. Reading a test or running the evidence checker is not execution of application behavior.
 
 When machine-verifiable source anchors help, use [the evidence format](references/evidence-format.md) and the optional `scripts/verify_evidence.py`. The checker verifies source integrity and line anchors, not whether the prose correctly interprets them. The skill remains usable through ordinary source citations without Python.

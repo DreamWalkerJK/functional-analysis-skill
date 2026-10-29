@@ -63,8 +63,14 @@ For private source reviewed locally, an explicit local root plus relative paths 
 
 Treat source documents as evidence with provenance and version. Mark conflicting documentation, comments, tests and code explicitly. A test assertion supports an expected scenario; only a recorded successful run supports “tested.” Generated diagrams and prose are explanations derived from evidence, not independent corroboration.
 
-## 6. Review for completeness and honest limits
+## 6. Organize the functional design
+
+Read the user's preferred document as a writing reference when supplied: inspect its outline and complete functional sections. Translate the discovered functions into business chapters before drafting. Start with scope, module purpose and core objects; explain shared mechanisms where useful; then develop each substantial functional area with a function matrix and concrete operations. Use the writing guide and template to keep headings natural and specific.
+
+The investigation map is a working aid, not the final table of contents. Move baseline, hash checks, test records and the source index to appendices or companion files. Keep a material uncertainty in the functional section it qualifies, without repeating general analysis limitations throughout the document. Preserve implementation facts when restructuring: moving a rule must not lose its conditions, exception path, state effects or source reference.
+
+## 7. Review for completeness and honest limits
 
 Revisit every matrix row. Check that its trigger, main decisions, outcome and evidence are described. Check that error paths and data/state tables agree with narrative and diagrams. Reopen cited lines; remove unsupported absolutes such as “all,” “only,” “guarantees,” and “never” unless the explored scope supports them.
 
-State analysis coverage and validation limits precisely. Collect remaining questions by impact on interpretation, with the missing evidence needed to resolve them. The presence of a gap does not prevent delivery of the supported portion. Do not add speculative risk registers or redesign proposals unless requested.
+Read the heading outline independently of the body. Check that it follows the business structure, uses familiar language and points to concrete functions, and that each section's content matches its heading. State analysis coverage and validation limits precisely in the appendix. Collect material remaining questions with the missing evidence needed to resolve them. The presence of a gap does not prevent delivery of the supported portion. Do not add speculative risk registers or redesign proposals unless requested.
