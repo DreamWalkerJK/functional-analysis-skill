@@ -2,12 +2,13 @@
 name: functional-analysis
 description: Analyze a software system, service, or module and write an evidence-based functional description covering capabilities, business flows, rules, data and state changes, failure behavior, and integration boundaries. Use for 功能描述、功能说明、业务逻辑梳理、模块设计逻辑 or reverse-engineering documentation from source code and supplied materials.
 license: MIT
-compatibility: Requires access to source code or supplied design materials. No specific agent, operating system, network service, or runtime is required; optional evidence verification uses Python 3.10+.
 metadata:
   version: "0.1.0"
 ---
 
 # Functional analysis
+
+Requires source code or supplied design materials. No specific agent, operating system, network service, or runtime is required; optional evidence verification uses Python 3.10+.
 
 Produce a functional description that a human can use to understand what a system does, when it does it, which rules it applies, and what changes as a result. Organize by business capability and explain execution behavior with traceable evidence. Use the user's language and preserve original identifiers.
 
