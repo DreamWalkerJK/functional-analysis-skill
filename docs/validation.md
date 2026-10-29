@@ -1,5 +1,21 @@
 # Validation record
 
+## 0.2.0 document structure revision
+
+The user preferred a conventional functional design document to the initial analysis-report organization. Version `0.2.0` changes the entrypoint, writing guide, investigation-to-writing handoff and document template accordingly. Functional chapters now use concrete business names and describe operations with inputs, validation, ordered processing, data changes, results and failures. Revision and verification records belong in appendices.
+
+This revision was applied to the same three local service documents. Their source-anchor indices remain unchanged, allowing the rewritten descriptions to be reviewed against the original evidence. The earlier documents are preserved locally for comparison. Public artifacts contain only general guidance; the private reference document and generated service documents are not copied into this repository.
+
+All 155 original source anchors remain present and cited in the rewritten body, and the evidence checker passed for each service. Local document and source links resolve. A separate review checked the business structure and retention of important conditions against the earlier documents. The analyzed application's revision and working tree remain unchanged.
+
+Local distribution tests were repeated: 27 ran, 25 passed, and the same two Windows ordinary-symbolic-link tests were skipped. The skill validator passed. The source code of the installer and evidence checker was not changed.
+
+Both current-user installations match the updated skill resources. Repeating installation reports identical files. The release workflow verifies the distribution on Windows, macOS and Linux before publishing [v0.2.0](https://github.com/DreamWalkerJK/functional-analysis-skill/releases/tag/v0.2.0); the local release record separately captures the completed run and downloaded-archive verification.
+
+The section below records the earlier `0.1.1` release checks; it is retained as historical evidence rather than a claim about the `0.2.0` release pipeline.
+
+## 0.1.1 validation
+
 Validated on 2026-10-29 against release `v0.1.1`.
 
 ## Distribution
