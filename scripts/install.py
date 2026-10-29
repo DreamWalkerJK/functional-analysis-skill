@@ -39,6 +39,8 @@ def manifest(folder: Path) -> dict[str, str]:
         raise ValueError(f"Expected a directory: {folder}")
     result: dict[str, str] = {}
     for parent, directories, files in os.walk(folder, followlinks=False):
+        directories[:] = [name for name in directories if name != "__pycache__"]
+        files = [name for name in files if not name.endswith((".pyc", ".pyo"))]
         for name in directories + files:
             child = Path(parent) / name
             reject_links(child)
@@ -89,7 +91,7 @@ def install(source: Path, target: Path, apply: bool = False) -> str:
     # with mkdir(exist_ok=False). A concurrent install can never be replaced.
     with tempfile.TemporaryDirectory(prefix=f".{NAME}-stage-", dir=target.parent) as temporary:
         staged = Path(temporary) / NAME
-        shutil.copytree(source, staged)
+        shutil.copytree(source, staged, ignore=shutil.ignore_patterns("__pycache__", "*.pyc", "*.pyo"))
         if manifest(staged) != expected:
             raise ValueError("Source changed during installation; no installation was created.")
         reject_links(target)

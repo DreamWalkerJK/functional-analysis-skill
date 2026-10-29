@@ -55,6 +55,20 @@ class InstallTests(unittest.TestCase):
         self.assertIn("Already installed", installer.install(self.source, self.target, True))
         self.assertEqual(before, {p: p.stat().st_mtime_ns for p in self.target.rglob("*")})
 
+    def test_python_caches_do_not_enter_or_conflict_with_installation(self):
+        cache = self.source / "__pycache__"
+        cache.mkdir()
+        (cache / "local.pyc").write_bytes(b"generated")
+        (self.source / "local.pyo").write_bytes(b"generated")
+        installer.install(self.source, self.target, True)
+        self.assertFalse((self.target / "__pycache__").exists())
+        self.assertFalse((self.target / "local.pyo").exists())
+        target_cache = self.target / "__pycache__"
+        target_cache.mkdir()
+        (target_cache / "local.pyc").write_bytes(b"runtime-generated")
+        self.assertIn("Already installed", installer.install(self.source, self.target, True))
+        self.assertEqual(b"runtime-generated", (target_cache / "local.pyc").read_bytes())
+
     def test_modified_installation_is_preserved(self):
         installer.install(self.source, self.target, True)
         local = self.target / "SKILL.md"

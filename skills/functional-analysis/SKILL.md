@@ -3,7 +3,7 @@ name: functional-analysis
 description: Analyze a software system, service, or module and write an evidence-based functional description covering capabilities, business flows, rules, data and state changes, failure behavior, and integration boundaries. Use for 功能描述、功能说明、业务逻辑梳理、模块设计逻辑 or reverse-engineering documentation from source code and supplied materials.
 license: MIT
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # Functional analysis

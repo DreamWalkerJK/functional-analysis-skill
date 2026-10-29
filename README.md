@@ -61,7 +61,7 @@ python scripts/install.py --agent generic --scope project --project <project-pat
 python scripts/install.py --dest <shared-skills-directory> --apply
 ```
 
-安装器遇到相同内容会保持原文件及时间戳；遇到冲突、额外文件或已有空目录会停止，不覆盖用户内容。它拒绝源与目标路径组件中的符号链接和 Windows junction。当前版本不自动升级或卸载：保留已有安装并选择新的目标，或核对备份后手动替换。
+安装器遇到相同内容会保持原文件及时间戳；遇到冲突、额外文件或已有空目录会停止，不覆盖用户内容。Python 运行缓存（`__pycache__`、`.pyc`、`.pyo`）不参与分发或内容比较。它拒绝参与复制的源与目标路径组件中的符号链接和 Windows junction。当前版本不自动升级或卸载：保留已有安装并选择新的目标，或核对备份后手动替换。
 
 独立 Skill ZIP 可直接解压，将其中的 `functional-analysis/` 目录复制到客户端技能目录；保留全部相对资源。没有 Python 时使用该方式。新安装将在客户端下一次刷新技能时可用；Codex 中通常在下一轮对话可用。若当前会话没有刷新，显式读取安装目录中的 `SKILL.md` 即可执行。
 
@@ -70,7 +70,7 @@ python scripts/install.py --dest <shared-skills-directory> --apply
 ```text
 仓库：DreamWalkerJK/functional-analysis-skill
 路径：skills/functional-analysis
-版本：v0.1.0
+版本：v0.1.1
 ```
 
 ## 内容布局

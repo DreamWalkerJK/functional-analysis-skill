@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1 — 2026-10-29
+
+- Exclude Python runtime caches from installation and repeat-install comparisons.
+- Add a regression test for source and installed bytecode caches.
+
 ## 0.1.0 — 2026-10-29
 
 - Portable system, service and module functional analysis skill.
